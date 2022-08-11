@@ -2,7 +2,7 @@
 
 //Función de Validacion de inputs vs expresiones regulares
 
-const validation = (campo, value, expretion) => {
+export const validation = (campo, value, expretion) => {
   if (value.match(expretion)) {
     document.getElementById(`${campo}`).classList.remove("formValIncorrecto");
     document.getElementById(`${campo}`).classList.add("formValCorrecto");
@@ -18,7 +18,7 @@ const validation = (campo, value, expretion) => {
   }
 };
 
-const validationPassword2 = () => {
+export const validationPassword2 = () => {
   const pass1 = document.getElementById("password1");
   const pass2 = document.getElementById("password2");
   if (pass1.value !== pass2.value) {
@@ -38,8 +38,9 @@ const validationPassword2 = () => {
 
 
 // Función para almacenar en el SessionStorage
-const sessionUser = (user) => {
+export const sessionUser = (user) => {
   const sessionLogin =JSON.stringify(user);
   sessionStorage.setItem("userSession", sessionLogin);
 };
+
 

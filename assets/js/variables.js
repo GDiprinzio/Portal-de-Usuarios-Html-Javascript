@@ -1,5 +1,5 @@
 //ESPRESIONES REGULARES
-const expressions = {
+export const expressions = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -35,7 +35,7 @@ const expressions = {
   localStorage.setItem("users", usersList);
   
   //Declaración de Objeto
-  class UserInfomation {
+  export class UserInfomation {
     constructor(userName, userLastName, userEmail, userPassword) {
       this.userName = userName;
       this.userLastName = userLastName;

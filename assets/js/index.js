@@ -1,10 +1,11 @@
-import {bodyAddUser} from "./modal.js"
-
+/* import {bodyAddUser} from "./modal.js" */
+import { validation, validationPassword2, sessionUser } from "./functions.js";
+import { expressions, UserInfomation } from "./variables.js";
 const formLogin = document.getElementById("formLogin");
 const inputsL = document.querySelectorAll("#formLogin, input");
 const formReg = document.getElementById("formRegister");
-console.log(formReg.innerHTML);
 const inputs = document.querySelectorAll("#formRegister, input");
+
 //-------------- LOGIN DE USUARIOS --------------//
 const validationLogin = (e) => {
   switch (e.target.name) {
@@ -104,6 +105,6 @@ formReg.addEventListener("submit", (e) => {
     const newUserStorage = JSON.stringify(usersListStorage);
     localStorage.setItem("users", newUserStorage);
     sessionUser(newUser);
-    open('./../../pages/main.html',"Pagina de Usurio");
+    window.open('./../../pages/main.html',"_self");
   }
 }); 
