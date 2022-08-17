@@ -16,7 +16,7 @@ html {
 
 body {
     font-family: "Montserrat", sans-serif;
-    background-color: lightskyblue;
+    background-color: rgb(161, 165, 167);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -97,7 +97,7 @@ body {
 
 .contianerForm .containerFormLogin {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr;
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
         "userLogin userLogin"
@@ -125,7 +125,6 @@ body {
 
 .containerButtons {
     display: flex;
-    justify-content: right;
     grid-area: buttons;
     bottom: 0;
     height: 5rem;
@@ -135,14 +134,14 @@ body {
 .contianerFormRegister {
     display: flex;
     flex-direction: column;
-    width: 50rem;
-    padding: 0.5rem;
+    width: 60rem;
+    padding: 5rem;
   }
   
   .formRegister {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
   }
   
   .titleRegister {
@@ -182,7 +181,7 @@ body {
     grid-area: userPassword2;
   }
   input {
-    width: 30rem;
+    width: 15rem;
     height: 3rem;
   }
   .userL,
@@ -225,3 +224,54 @@ body {
     display: block;
   }
   
+/*   .containerSection{
+    display: flex;
+    margin-top: 10rem;
+    grid-template-columns: .5fr, 3fr;
+    grid-template-areas: "containerMenu containerVisualInformation";
+  }
+.containerMenu{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  grid-area: containerMenu;
+}
+.containerVisualInformation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: containerVisualizationInfomation; 
+}*/
+
+/*------==== MAIN.html ====------*/
+.hiddenElement{
+  display: none;
+}
+
+.containerSection{
+  margin-top: 11rem;
+  padding: 1.5rem;
+  
+}
+.containerMain{
+ display: flex;
+ padding: 5rem;
+ grid-template-columns: 25rem 2fr 2fr;
+ grid-template-rows: repeat(2, 1fr);
+ grid-template-areas:"MenuBody VisualBody VisualBody "
+                     "MenuBody VisualBody VisualBody " ;
+}
+.containerMenuBody{
+  grid-area: MenuBody;
+}
+.contianerVisualBody{
+  padding-left: 5rem;
+  grid-area: VisualBody;
+ 
+}
+
+.containerFormMenu{
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}

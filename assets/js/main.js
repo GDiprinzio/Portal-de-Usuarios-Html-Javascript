@@ -1,24 +1,57 @@
 const closeSession = document.getElementById("CloseSession");
-const adminSession = document.getElementById("navItemAdmin")
+const adminSession = document.getElementById("usersAdministration");
+const adminProyect = document.getElementById("proyectAdministration");
+const title = document.getElementById("mainTitle");
+const btns = document.querySelectorAll("#menuBody, button");
+const visualBody = document.getElementById("visualBody");
 
 const { userName, userAdmin } = JSON.parse(
   sessionStorage.getItem("userSession")
 );
 
-/* if (userAdmin ? true : false) {
+const welcomeTitle = document.createElement("h1");
+welcomeTitle.innerHTML = `Bienvenido ${userName}`;
+title.appendChild(welcomeTitle);
+
+if (userAdmin ? true : false) {
   document
-    .querySelector(`#navItemAdmin, .navItemAdminAct`)
-    .classList.remove(`navItemAdminAct`);
+    .querySelector(`#usersAdministration, .hiddenElement`)
+    .classList.remove(`hiddenElement`);
+  document
+    .querySelector(`#proyectAdministration, .hiddenElement`)
+    .classList.remove(`hiddenElement`);
 } else {
-  document.querySelector(`#navItemAdmin`).classList.add(`navItemAdminAct`);
-}; */
+  document.querySelector(`#usersAdministration`).classList.add(`hiddenElement`);
+  document
+    .querySelector(`#proyectAdministration`)
+    .classList.add(`hiddenElement`);
+}
+
+/* document.getElementById(`${e.target.dataset.nome}`).classList.remove(`hiddenElement`) */
+
+function showBody(e) {
+  for (let index = 1; index < 5; index++) {
+    document.getElementById("body" + index).classList.add(`hiddenElement`);
+  }
+  document
+    .getElementById(`${e.target.dataset.nome}`)
+    .classList.remove(`hiddenElement`);
+}
+
+btns.forEach((button) => {
+  button.addEventListener("click", showBody);
+});
+
+/* const showBody= (e)=> {
+ document.getElementById(usersAdmin).hidden=true;
+} */
 
 closeSession.addEventListener("click", CloseClean);
 
 function CloseClean() {
   sessionStorage.clear();
-  window.open('./../index.html',"_self");
-};
+  window.open("./../index.html", "_self");
+}
 
 /* document.querySelector("#btn").addEventListener("click", takeData);
 
@@ -46,7 +79,7 @@ function takeData() {
       }
     }
   };  */
- 
+
 /*S fetch("./../assets/data/db.json")
     .then((response) => response.json())
     .then((data) => {
