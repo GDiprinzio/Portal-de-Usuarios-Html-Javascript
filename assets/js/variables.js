@@ -8,6 +8,7 @@ export const expressions = {
   //ARRAY DE OBJETOS USERINFOMATION
   const userList = [
     {
+      userId:1,
       userName: null,
       userLastName: null,
       userEmail: "admin@admin.com",
@@ -15,6 +16,7 @@ export const expressions = {
       userAdmin: true
     },
     {
+      userId:2,
       userName: "Gabriel",
       userLastName: "Di Prinzio",
       userEmail: "gdiprinzio@gmail.com",
@@ -22,6 +24,7 @@ export const expressions = {
       userAdmin: true
     },
     {
+      userId:3,
       userName: "Bruno",
       userLastName: "Tutor",
       userEmail: "brunotutor@gmail.com",
@@ -36,7 +39,8 @@ export const expressions = {
   
   //Declaración de Objeto
   export class UserInfomation {
-    constructor(userName, userLastName, userEmail, userPassword) {
+    constructor(userId, userName, userLastName, userEmail, userPassword) {
+      this.id=userId;
       this.userName = userName;
       this.userLastName = userLastName;
       this.userEmail = userEmail;

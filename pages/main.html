@@ -32,68 +32,58 @@
     </header>
     <section class="containerSection">
         <div class="title" id="mainTitle">
-            
-        </div>
-        <div class="containerMain" >
-        <div class="containerMenuBody" id="menuBody">
-            <form class="containerFormMenu" id="mainMenu">
-                <button class="btn btnSpecial me-3 " data-nome="body1" id="usersAdministration" type="button" data-bs-toggle="modal"
-                    data-bs-target="#modalLogin">Administración de Usuarios</button>
-                <button class="btn btnSpecial me-3 " data-nome="body2" id="proyectAdministration" type="button" data-bs-toggle="modal"
-                    data-bs-target="#modalLogin">Administración de proyectos</button>
-                <button class="btn btnSpecial me-3 " data-nome="body3" id="visualizationProyect" type="button" data-bs-toggle="modal"
-                    data-bs-target="#modalLogin">Visualización de proyectos</button>
-                <button class="btn btnSpecial me-3 " data-nome="body4" id="iOMaterial" type="button" data-bs-toggle="modal"
-                    data-bs-target="#modalLogin">Ingreso y egreso de Material</button>
-            </form>
-        </div>
-        <div class="contianerVisualBody" id="visualBody">
-
-            <div class="bodyUsersAdmin hiddenElement"  id="body1">
-                <h3>Administración de Usuarios</h3>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-            <div class="bodyProyectAdmin hiddenElement" id="body2">
-                <h3>Administración de proyectos</h3>
-            </div>
-            <div class="bodyVisualProy hiddenElement" id="body3">
-                <h3>Visualización de proyectos</h3>
-            </div>
-            <div class="bodyIOMat hiddenElement" id="body4">
-                <h3>Ingreso y egreso de Material</h3>
-            </div>
-           
 
         </div>
-     </div>
+        <div class="containerMain">
+            <div class="containerMenuBody" id="menuBody">
+                <form class="containerFormMenu" id="mainMenu">
+                    <button class="btn btnSpecial me-3 " data-nome="body1" id="usersAdministration" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalLogin">Administración de Usuarios</button>
+                    <button class="btn btnSpecial me-3 " data-nome="body2" id="proyectAdministration" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalLogin">Administración de proyectos</button>
+                    <button class="btn btnSpecial me-3 " data-nome="body3" id="visualizationProyect" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalLogin">Visualización de proyectos</button>
+                    <button class="btn btnSpecial me-3 " data-nome="body4" id="iOMaterial" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalLogin">Ingreso y egreso de Material</button>
+                </form>
+            </div>
+            <div class="contianerVisualBody" id="visualBody">
+
+                <div class="bodyUsersAdmin hiddenElement" id="body1">
+                    <h3>Administración de Usuarios</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Usuario Administrador</th>
+                                <th scope="col">@</select></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableUsers">
+                         
+                        </tbody>
+                    </table>
+                    <div class="containerButtons " role="group" aria-label="Basic example">
+                        <button type="button" class="btn btnBasic">Agregar usuario</button>
+                        <button type="button" class="btn btnBasic btnBasic2 .hiddenElement" >Eliminar usuario</button>
+                      </div>
+                </div>
+                <div class="bodyProyectAdmin hiddenElement" id="body2">
+                    <h3>Administración de proyectos</h3>
+                </div>
+                <div class="bodyVisualProy hiddenElement" id="body3">
+                    <h3>Visualización de proyectos</h3>
+                </div>
+                <div class="bodyIOMat hiddenElement" id="body4">
+                    <h3>Ingreso y egreso de Material</h3>
+                </div>
+                
+
+            </div>
+        </div>
     </section>
     <script src="./../assets/js/main.js" type="module" defer></script>
 </body>

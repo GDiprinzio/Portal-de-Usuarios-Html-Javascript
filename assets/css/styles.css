@@ -4,226 +4,234 @@
 /*font-family: 'Montserrat', sans-serif; font-family: 'Roboto', sans-serif;*/
 /*------==== FIN DE DEFININICION DE VARIABLES ====------*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
-    /*1rem==10px*/
+  font-size: 62.5%;
+  /*1rem==10px*/
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
-    background-color: rgb(161, 165, 167);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    min-height: 100vh;
-    margin-bottom: 15rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(161, 165, 167);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  margin-bottom: 15rem;
 }
 
 .navbar {
-    background-color: #112d4e;
-    width: 100%;
-    top: 0;
-    left: 0;
+  background-color: #112d4e;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .navbar .imgLogo {
-    height: 9rem;
-    margin-left: 4rem;
+  height: 9rem;
+  margin-left: 4rem;
 }
 
 .navbar .nav-item {
-    list-style: none;
-    font-size: 1.8rem;
-    margin: 0 1rem;
-    line-height: 8rem;
-    text-transform: uppercase;
-    width: max-content;
+  list-style: none;
+  font-size: 1.8rem;
+  margin: 0 1rem;
+  line-height: 8rem;
+  text-transform: uppercase;
+  width: max-content;
 }
 
 .navbar .nav-item .navbar-link {
-    font-family: "Montserrat", sans-serif;
-    color: white;
-    text-decoration: none;
-    padding: .8rem 1.2rem;
-    border-radius: 6rem;
-    transition: 250ms ease-in-out;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6rem;
+  transition: 250ms ease-in-out;
 }
 
 .navbar .nav-item .navbar-link:hover {
-    color: white;
-    border-bottom: solid .5rem greenyellow;
+  color: white;
+  border-bottom: solid 0.5rem greenyellow;
 }
 
 .btnSpecial {
-    background-color: #375b84;
-    text-transform: uppercase;
-    padding: 0.5rem;
-    color: white;
-    border-radius: 1rem;
-    cursor: pointer;
-    grid-area: button;
-    padding: 1rem;
-    margin-top: 1.5rem;
-    letter-spacing: 0.1rem;
-    border: 0;
-    border-bottom: 1rem;
-    transition: 0.5s;
+  background-color: #375b84;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+  grid-area: button;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  letter-spacing: 0.1rem;
+  border: 0;
+  border-bottom: 1rem;
+  transition: 0.5s;
 }
 
 .btnSpecial:hover {
-    transform: scale(1.1);
-    border-right: solid 0.5rem #2bf7f7;
-    border-bottom: solid 0.5rem #2bf7f7;
-    border-radius: 1rem;
-    box-shadow: 0.5rem 0.75rem 2rem #2bf7f7;
-    background-color: greenyellow;
-    color: #112d4e;
+  transform: scale(1.1);
+  border-right: solid 0.5rem #2bf7f7;
+  border-bottom: solid 0.5rem #2bf7f7;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.75rem 2rem #2bf7f7;
+  background-color: greenyellow;
+  color: #112d4e;
 }
 
 .contianerForm {
-    padding: 2rem;
-    gap: 2rem;
-    justify-content: space-evenly;
-    align-content: center;
-    width: 50rem;
-    height: 45rem;
+  padding: 2rem;
+  gap: 2rem;
+  align-content: center;
+  height: 45rem;
+  display: flex;
+  justify-content: center;
 }
 
-.contianerForm .containerFormLogin {
-    display: grid;
-    grid-template-columns: 2fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas:
-        "userLogin userLogin"
-        "userPassLogin userPassLogin"
-        "buttons buttons";
+.containerFormLogin {
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "userLogin userLogin"
+    "userPassLogin userPassLogin"
+    "buttons buttons";
 }
 
 .containerUserNameL {
-    grid-area: userLogin;
-    width: 90%;
+  grid-area: userLogin;
+  width: 70%;
 }
 
 .containerUserPasswordL {
-    grid-area: userPassLogin;
-    width: 90%;
+  grid-area: userPassLogin;
+  width: 70%;
 }
 
 .containerUserNameL,
 .containerUserPasswordL {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  font-size: 18px;
 }
 
 .containerButtons {
-    display: flex;
-    grid-area: buttons;
-    bottom: 0;
-    height: 5rem;
-    font-weight: bolder;
+  display: flex;
+  grid-area: buttons;
+  bottom: 0;
+  height: 5rem;
+  font-weight: bolder;
+}
+.modal-content{
+  width: 65rem;
 }
 
 .contianerFormRegister {
-    display: flex;
-    flex-direction: column;
-    width: 60rem;
-    padding: 5rem;
-  }
-  
-  .formRegister {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.2rem;
-  }
-  
-  .titleRegister {
-    height: 2rem;
-    padding: 1rem;
-  }
-  
-  .formUserRegister {
-    margin-top: 0rem;
-    display: grid;
-    padding: 1rem 1rem;
-    gap: 2rem;
-    justify-content: space-evenly;
-    align-content: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-areas:
-      "userName userLastName"
-      "userEmail userEmail"
-      "userPassword1 userPassword1"
-      "userPassword2 userPassword2"
-      "buttons buttons";
-  }
-  .itemUserName {
-    grid-area: userName;
-  }
-  .itemUserLastName {
-    grid-area: userLastName;
-  }
-  .itemEmail {
-    grid-area: userEmail;
-  }
-  .password1 {
-    grid-area: userPassword1;
-  }
-  .password2 {
-    grid-area: userPassword2;
-  }
-  input {
-    width: 15rem;
-    height: 3rem;
-  }
-  .userL,
-  .passwordL,
-  .itemUserName,
-  .itemUserLastName,
-  .itemEmail,
-  .password1,
-  .password2 {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .formValCorrecto {
-    color: rgb(7, 130, 7);
-  }
-  .formValIncorrecto {
-    color: rgb(149, 17, 17);
-  }
-  
-  .inputAlertaError_userNameR,
-  .inputAlertaError_userLastNameR,
-  .inputAlertaError_userEmailR,
-  .inputAlertaError_password2,
-  .inputAlertaError2_userEmailR, 
-  .inputAlertaError_userNameLogin, 
-  .inputAlertaError_userPasswordL,
-  .inputAlertaError_Login
-   {
-    font-size: 12px;
-    margin-bottom: 0;
-    display: none;
-  }
-  
-  .inputAlertaErrorActive {
-    display: block;
-  }
-  .inputAlertaErrorActive2 {
-    color: rgb(149, 17, 17);
-    display: block;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5rem;
+}
+
+.formRegister {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.2rem;
+}
+
+.titleRegister {
+  height: 2rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.formUserRegister {
+  width: 100%;
+  margin-top: 0rem;
+  display: grid;
+  padding: 1rem 1rem;
+  gap: 2rem;
+  justify-content: space-evenly;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "userName userLastName"
+    "userEmail userEmail"
+    "userPassword1 userPassword1"
+    "userPassword2 userPassword2"
+    "buttons buttons";
+}
+.itemUserName {
+  /* width: 45%; */
+  grid-area: userName;
+}
+.itemUserLastName {
+ /*  width: 45%; */
+  grid-area: userLastName;
+}
+.itemEmail {
+  /* width: 90%; */
+  grid-area: userEmail;
+}
+.password1 {
+  /* width: 100%; */
+  grid-area: userPassword1;
+}
+.password2 {
+ /*  width: 90%; */
+  grid-area: userPassword2;
+}
+input {
+  height: 3rem;
+}
+.userL,
+.passwordL,
+.itemUserName,
+.itemUserLastName,
+.itemEmail,
+.password1,
+.password2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.formValCorrecto {
+  color: rgb(7, 130, 7);
+}
+.formValIncorrecto {
+  color: rgb(149, 17, 17);
+}
+
+.inputAlertaError_userNameR,
+.inputAlertaError_userLastNameR,
+.inputAlertaError_userEmailR,
+.inputAlertaError_password2,
+.inputAlertaError2_userEmailR,
+.inputAlertaError_userNameLogin,
+.inputAlertaError_userPasswordL,
+.inputAlertaError_Login {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+
+.inputAlertaErrorActive {
+  display: block;
+}
+.inputAlertaErrorActive2 {
+  color: rgb(149, 17, 17);
+  display: block;
+}
+
 /*   .containerSection{
     display: flex;
     margin-top: 10rem;
@@ -244,34 +252,57 @@ body {
 }*/
 
 /*------==== MAIN.html ====------*/
-.hiddenElement{
+.hiddenElement {
   display: none;
 }
 
-.containerSection{
+.containerSection {
   margin-top: 11rem;
   padding: 1.5rem;
-  
 }
-.containerMain{
- display: flex;
- padding: 5rem;
- grid-template-columns: 25rem 2fr 2fr;
- grid-template-rows: repeat(2, 1fr);
- grid-template-areas:"MenuBody VisualBody VisualBody "
-                     "MenuBody VisualBody VisualBody " ;
+.containerMain {
+  display: flex;
+  padding: 5rem;
+  grid-template-columns: 25rem 2fr 2fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "MenuBody VisualBody VisualBody "
+    "MenuBody VisualBody VisualBody ";
 }
-.containerMenuBody{
+.containerMenuBody {
   grid-area: MenuBody;
 }
-.contianerVisualBody{
+.contianerVisualBody {
   padding-left: 5rem;
   grid-area: VisualBody;
- 
 }
 
-.containerFormMenu{
+.containerFormMenu {
   display: flex;
   flex-direction: column;
   width: 20rem;
+}
+
+.btnBasic {
+  background-color: #375b84;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  margin-top: 1.5rem;
+  letter-spacing: 0.1rem;
+  border: 0;
+  transition: 0.5s;
+}
+
+.btnBasic:hover{
+  background-color: greenyellow;
+  color: #112d4e;
+}
+
+.btnBasic2:hover{
+  background-color: rgb(236, 77, 69);
+  color: #112d4e;
 }

@@ -27,8 +27,6 @@ if (userAdmin ? true : false) {
     .classList.add(`hiddenElement`);
 }
 
-/* document.getElementById(`${e.target.dataset.nome}`).classList.remove(`hiddenElement`) */
-
 function showBody(e) {
   for (let index = 1; index < 5; index++) {
     document.getElementById("body" + index).classList.add(`hiddenElement`);
@@ -42,10 +40,6 @@ btns.forEach((button) => {
   button.addEventListener("click", showBody);
 });
 
-/* const showBody= (e)=> {
- document.getElementById(usersAdmin).hidden=true;
-} */
-
 closeSession.addEventListener("click", CloseClean);
 
 function CloseClean() {
@@ -53,51 +47,71 @@ function CloseClean() {
   window.open("./../index.html", "_self");
 }
 
-/* document.querySelector("#btn").addEventListener("click", takeData);
+document
+  .querySelector("#usersAdministration")
+  .addEventListener("click", takeData);
+
+function clearTable() {
+  document.querySelector("#tableUsers").innerHTML = "";
+}
 
 function takeData() {
-  /* const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "./../assets/data/db.json", true);
-  xhttp.send();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
-      let data = JSON.parse(this.responseText);
-      console.log(data);
-      let tableUsers = document.querySelector("#tableUsers");
-      tableUsers.innerHTML = "";
-
-      for (let user of data) {
-        tableUsers.innerHTML += `
-        <tr>
-        <td>${user.userName}</td>
-        <td>${user.userLastName}</td>
-        <td>${user.userEmail}</td>
-        <td>${user.userAdmin}</td>
-        </tr>        
-        `;
-      }
-    }
-  };  */
-
-/*S fetch("./../assets/data/db.json")
+  fetch("./../assets/data/db.json")
     .then((response) => response.json())
+
     .then((data) => {
-      console.log(data);
       let tableUsers = document.querySelector("#tableUsers");
-      tableUsers.innerHTML = "";
+
+      clearTable();
 
       for (let user of data) {
-        tableUsers.innerHTML += `
-        <tr>
-        <td>${user.userName}</td>
-        <td>${user.userLastName}</td>
-        <td>${user.userEmail}</td>
-        <td>${user.userAdmin}</td>
-        </tr>
-        <hr>   
-        `;
+        let $tr = document.createElement("tr");
+        let $thId = document.createElement("th");
+        let $thIdText = document.createTextNode(`${user.userId}`);
+        let $tdName = document.createElement("td");
+        let $tdNameText = document.createTextNode(`${user.userName}`);
+        let $tdLastName = document.createElement("td");
+        let $tdLastNameText = document.createTextNode(`${user.userLastName}`);
+        let $tdEmail = document.createElement("td");
+        let $tdEmailText = document.createTextNode(`${user.userEmail}`);
+        let $tdAdmin = document.createElement("td");
+        let $tdAdminText = document.createTextNode(`${user.userAdmin}`);
+        let $tdCheck = document.createElement("td");
+        let $divInput = document.createElement("div");
+        let $input = document.createElement("input");
+
+        $thId.setAttribute("scope", "row");
+        $thId.setAttribute("id", "id");
+        $thId.appendChild($thIdText);
+
+        $tdName.appendChild($tdNameText);
+        $tdLastName.appendChild($tdLastNameText);
+        $tdEmail.appendChild($tdEmailText);
+        $tdAdmin.appendChild($tdAdminText);
+
+        $input.setAttribute("class", "form-check-input checkbox");
+        $input.setAttribute("type", "checkbox");
+        $input.setAttribute("value", `${user.userId}`);
+        $input.setAttribute("id", `check${user.userId}`);
+        $input.setAttribute("name", "checkDelet");
+
+        $divInput.setAttribute("class", "form-check");
+        $divInput.appendChild($input);
+        $tdCheck.appendChild($divInput);
+
+        $tr.appendChild($thId);
+        $tr.appendChild($tdName);
+        $tr.appendChild($tdLastName);
+        $tr.appendChild($tdEmail);
+        $tr.appendChild($tdAdmin);
+        $tr.appendChild($tdCheck);
+
+        tableUsers.appendChild($tr);
       }
     });
 }
- */
+
+const checkboxs = document.getElementsByTagName("input");
+console.log(checkboxs);
+
+

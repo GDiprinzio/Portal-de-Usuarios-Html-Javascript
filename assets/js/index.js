@@ -44,8 +44,7 @@ Swal.fire({
   }
 });
 
-/* const userReg=document.getElementById('userRegister');
-userReg.addEventListener("click", bodyAddUser); */
+
 
 
 
@@ -84,7 +83,6 @@ inputs.forEach((input) => {
 formReg.addEventListener("submit", (e) => {
   e.preventDefault();
   const usersListStorage = JSON.parse(localStorage.getItem("users"));
-  console.log(e.target.userEmailR.value);
   const emailValidation = usersListStorage.find(
     (Element) => Element.userEmail === e.target.userEmailR.value
   );
@@ -95,7 +93,13 @@ formReg.addEventListener("submit", (e) => {
       text: "El correo electrónico ya se encuentra registrado.",
     });
   } else {
+    const lastUser=usersListStorage[usersListStorage.length-1]; 
+    let userId= Object.values(lastUser)[0]+1;
+    console.log(userId);
+   
+
     const newUser = new UserInfomation(
+      userId,
       e.target.userNameR.value,
       e.target.userLastNameR.value,
       e.target.userEmailR.value,
