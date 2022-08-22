@@ -1,10 +1,17 @@
-/* import {bodyAddUser} from "./modal.js" */
+//-------------- DECLARACION DE IMPORTACIONES --------------//
 import { validation, validationPassword2, sessionUser } from "./functions.js";
-import { expressions, UserInfomation } from "./variables.js";
+import { expressions, UserInfomation, takedata, usersListStorage } from "./variables.js";
+
+//-------------- DECLARACION DE CONST --------------//
 const formLogin = document.getElementById("formLogin");
 const inputsL = document.querySelectorAll("#formLogin, input");
 const formReg = document.getElementById("formRegister");
 const inputs = document.querySelectorAll("#formRegister, input");
+
+
+//-------------- CARGA DE INFORMACION A LOCALSTORAGE --------------//
+takedata();
+
 
 //-------------- LOGIN DE USUARIOS --------------//
 const validationLogin = (e) => {
@@ -26,7 +33,7 @@ inputsL.forEach((input) => {
 
 formLogin.addEventListener("submit", (e) => {
   e.preventDefault();
-  const usersListStorage = JSON.parse(localStorage.getItem("users"));
+  
   const userValidation= usersListStorage.find((Element)=> Element.userEmail === e.target.userNameLogin.value && Element.userPassword === e.target.userPasswordL.value);
   if( userValidation ? true : false){
     const position= usersListStorage.findIndex(user=>user.userEmail ===e.target.userNameLogin.value);
@@ -44,13 +51,8 @@ Swal.fire({
   }
 });
 
-
-
-
-
-
  //-------------- REGISTRO DE USUARIOS --------------//
-//Validación de los Inputs
+//-------------- Validación de los Inputs
 const formValidation = (e) => {
   switch (e.target.name) {
     case "userNameR":
@@ -72,17 +74,14 @@ const formValidation = (e) => {
   }
 };
 
-
-
 inputs.forEach((input) => {
   input.addEventListener("keyup", formValidation);
   input.addEventListener("blur", formValidation);
 });
 
-//Declaracion de Buttons
+//-------------- Declaracion de Buttons
 formReg.addEventListener("submit", (e) => {
   e.preventDefault();
-  const usersListStorage = JSON.parse(localStorage.getItem("users"));
   const emailValidation = usersListStorage.find(
     (Element) => Element.userEmail === e.target.userEmailR.value
   );

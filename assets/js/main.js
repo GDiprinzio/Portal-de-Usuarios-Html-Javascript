@@ -1,3 +1,7 @@
+//-------------- DECLARACION DE IMPORTACIONES --------------//
+import {usersListStorage } from "./variables.js";
+
+//-------------- DECLARACION DE CONST --------------//
 const closeSession = document.getElementById("CloseSession");
 const adminSession = document.getElementById("usersAdministration");
 const adminProyect = document.getElementById("proyectAdministration");
@@ -5,6 +9,7 @@ const title = document.getElementById("mainTitle");
 const btns = document.querySelectorAll("#menuBody, button");
 const visualBody = document.getElementById("visualBody");
 
+//-------------- TOMA DE INFO DE USUARIO QUE INICIO SESSION --------------//
 const { userName, userAdmin } = JSON.parse(
   sessionStorage.getItem("userSession")
 );
@@ -13,6 +18,8 @@ const welcomeTitle = document.createElement("h1");
 welcomeTitle.innerHTML = `Bienvenido ${userName}`;
 title.appendChild(welcomeTitle);
 
+
+//-------------- VALIDACION DEL TIPO DE USUARIO ADMINISTRADOR --------------//
 if (userAdmin ? true : false) {
   document
     .querySelector(`#usersAdministration, .hiddenElement`)
@@ -25,6 +32,16 @@ if (userAdmin ? true : false) {
   document
     .querySelector(`#proyectAdministration`)
     .classList.add(`hiddenElement`);
+}
+
+
+//-------------- DEFINICION PARA CERRAR SESSION --------------//
+
+closeSession.addEventListener("click", CloseClean);
+
+function CloseClean() {
+  sessionStorage.clear();
+  window.open("./../index.html", "_self");
 }
 
 function showBody(e) {
@@ -40,31 +57,23 @@ btns.forEach((button) => {
   button.addEventListener("click", showBody);
 });
 
-closeSession.addEventListener("click", CloseClean);
 
-function CloseClean() {
-  sessionStorage.clear();
-  window.open("./../index.html", "_self");
-}
 
 document
   .querySelector("#usersAdministration")
-  .addEventListener("click", takeData);
+  .addEventListener("click", usersTable);
 
 function clearTable() {
   document.querySelector("#tableUsers").innerHTML = "";
 }
 
-function takeData() {
-  fetch("./../assets/data/db.json")
-    .then((response) => response.json())
-
-    .then((data) => {
+function usersTable() {
+  
       let tableUsers = document.querySelector("#tableUsers");
 
       clearTable();
 
-      for (let user of data) {
+      for (let user of usersListStorage) {
         let $tr = document.createElement("tr");
         let $thId = document.createElement("th");
         let $thIdText = document.createTextNode(`${user.userId}`);
@@ -108,7 +117,7 @@ function takeData() {
 
         tableUsers.appendChild($tr);
       }
-    });
+   
 }
 
 const checkboxs = document.getElementsByTagName("input");
