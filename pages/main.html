@@ -2,90 +2,156 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./../assets/css/styles.css" />
-    <title>Main - Usuario</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./../assets/css/styles.css" />
+  <script src="./../assets/js/main.js" type="module" defer></script>
+  <title>Main - Usuario</title>
 </head>
 
 <body>
-    <header>
-        <div class="container-fluid fixed-top">
+  <header>
+    <div class="container-fluid fixed-top">
 
-            <nav class="navbar navbar-expand-lg position-absolute top-0 start-0 navbar-light">
-                <div class="container-fluid">
-                    <a href="./../index.html" class="navbar-brand"><img
-                            src="./../assets/img/logo/logo_small_icon_only_inverted.png" alt="LOGO" class="imgLogo"></a>
-                    <div class="containerButtons">
-                        <form class="container-fluid justify-content-end ">
-                            <button class="btn btnSpecial me-3 " id="CloseSession" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modalLogin">Cerrar sessión</button>
-                        </form>
+      <nav class="navbar navbar-expand-lg position-absolute top-0 start-0 navbar-light">
+        <div class="container-fluid">
+          <a href="./../index.html" class="navbar-brand"><img
+              src="./../assets/img/logo/logo_small_icon_only_inverted.png" alt="LOGO" class="imgLogo"></a>
+          <div class="containerButtons">
+            <form class="container-fluid justify-content-end ">
+              <button class="btn btnSpecial me-3 " id="CloseSession" type="button" data-bs-toggle="modal"
+                data-bs-target="#modalLogin">Cerrar sessión</button>
+            </form>
 
-                    </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="containerSection">
+    <div class="title" id="mainTitle">
+
+    </div>
+    <div class="containerMain">
+      <div class="containerMenuBody" id="menuBody">
+        <form class="containerFormMenu" id="mainMenu">
+          <button class="btn btnSpecial me-3 " data-nome="body1" id="usersAdministration" type="button"
+            data-bs-target="#body1">Administración de Usuarios</button>
+          <button class="btn btnSpecial me-3 " data-nome="body2" id="proyectAdministration" type="button"
+            data-bs-target="#body2">Administración de proyectos</button>
+          <button class="btn btnSpecial me-3 " data-nome="body3" id="visualProyect" type="button"
+            data-bs-target="#body3">Visualización de proyectos</button>
+          <button class="btn btnSpecial me-3 " data-nome="body4" id="iOMaterial" type="button"
+            data-bs-target="#body4">Ingreso y egreso de Material</button>
+        </form>
+      </div>
+      <div class="contianerVisualBody" id="visualBody">
+
+        <div class="bodyUsersAdmin hiddenElement" id="body1">
+          <h3>Administración de Usuarios</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Usuario Administrador</th>
+                <th scope="col">@</select></th>
+              </tr>
+            </thead>
+            <tbody id="tableUsers">
+
+            </tbody>
+          </table>
+          <div class="containerButtons " role="group" aria-label="Basic example">
+            <button type="button" class="btn btnBasic" data-bs-toggle="modal" data-bs-target="#modalAddUser">Agregar
+              usuario</button>
+            <button type="button" class="btn btnBasic btnBasic2 .hiddenElement">Eliminar usuario</button>
+          </div>
+        </div>
+        <div class="bodyProyectAdmin hiddenElement" id="body2">
+          <h3>Administración de proyectos</h3>
+        </div>
+        <div class="bodyVisualProy hiddenElement" id="body3">
+          <h3>Visualización de proyectos</h3>
+        </div>
+        <div class="bodyIOMat hiddenElement" id="body4">
+          <h3>Ingreso y egreso de Material</h3>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalAddUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar usuarios</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="contianerFormRegister ">
+            <div class="formRegister">
+              <div class="titleRegister">
+                <h5>Por favor ingrese los datos para registrarse.</h5>
+              </div>
+              <form action="#" class="formUserRegister " id="formRegister">
+                <div class="formItem itemUserName" id="item__userNameR">
+                  <label for="userName" class=" formLabel userName" id="fromLabel">Nombre:</label>
+                  <input type="text" class="input-group mb-3 formInput imputUserLastName" name="userNameR"
+                    id="userNameR" required />
+                  <p class="inputAlertaError_userNameR">Se han ingresado caracteres no validos</p>
                 </div>
-            </nav>
-        </div>
-    </header>
-    <section class="containerSection">
-        <div class="title" id="mainTitle">
-
-        </div>
-        <div class="containerMain">
-            <div class="containerMenuBody" id="menuBody">
-                <form class="containerFormMenu" id="mainMenu">
-                    <button class="btn btnSpecial me-3 " data-nome="body1" id="usersAdministration" type="button"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Administración de Usuarios</button>
-                    <button class="btn btnSpecial me-3 " data-nome="body2" id="proyectAdministration" type="button"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Administración de proyectos</button>
-                    <button class="btn btnSpecial me-3 " data-nome="body3" id="visualizationProyect" type="button"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Visualización de proyectos</button>
-                    <button class="btn btnSpecial me-3 " data-nome="body4" id="iOMaterial" type="button"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Ingreso y egreso de Material</button>
-                </form>
+                <div class="formItem itemUserLastName" id="item__userLastNameR">
+                  <label for="userLastName" class=" formLabel userLastName">Apellido:</label>
+                  <input type="text" class="input-group mb-3 formInput imputUserLastName" name="userLastNameR"
+                    id="userLastNameR" required />
+                  <p class="inputAlertaError_userLastNameR">Se han ingresado caracteres no validos</p>
+                </div>
+                <div class="formItem itemEmail" id="item__userEmailR">
+                  <label for="inputEmail" class=" formLabel userEmail">E-mail:</label>
+                  <input type="email" class="input-group mb-3 formInput inputEmail" name="userEmailR" id="userEmailR"
+                    required />
+                  <p class="inputAlertaError_userEmailR">Formato e-mail incorrecto.</p>
+                  <!-- <p class="inputAlertaError2_userEmailR">El e-mail ingresado ya se encuentra registrado.</p> -->
+                </div>
+                <div class="formItem itemPassword password1" id="item__password1">
+                  <label for="inputPasswprd" class=" formLabel userPassword">Por favor ingrese un password:</label>
+                  <input type="password" class="input-group mb-3 formInput inputPassword" name="password1"
+                    id="password1" required />
+                  <p class="inputAlertaError_password1">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                </div>
+                <div class="formItem itemPassword password2" id="item__password2">
+                  <label for="inputPasswprd" class=" formLabel userPassword">Por favor ingrese nuevamente el
+                    password:</label>
+                  <input type="password" class="input-group mb-3 formInput inputPassword" name="password2"
+                    id="password2" required />
+                  <p class="inputAlertaError_password2">Los password no coinciden.</p>
+                </div>
+                <div class="containerButtons" id="containerButtons">
+                  <button class="btn btnR btnSpecial me-3" id="registrar" type="submit" data-mdb-dismiss="modal">Agregar usuario</button>
+                </div>
+              </form>
             </div>
-            <div class="contianerVisualBody" id="visualBody">
-
-                <div class="bodyUsersAdmin hiddenElement" id="body1">
-                    <h3>Administración de Usuarios</h3>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">Usuario Administrador</th>
-                                <th scope="col">@</select></th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableUsers">
-                         
-                        </tbody>
-                    </table>
-                    <div class="containerButtons " role="group" aria-label="Basic example">
-                        <button type="button" class="btn btnBasic">Agregar usuario</button>
-                        <button type="button" class="btn btnBasic btnBasic2 .hiddenElement" >Eliminar usuario</button>
-                      </div>
-                </div>
-                <div class="bodyProyectAdmin hiddenElement" id="body2">
-                    <h3>Administración de proyectos</h3>
-                </div>
-                <div class="bodyVisualProy hiddenElement" id="body3">
-                    <h3>Visualización de proyectos</h3>
-                </div>
-                <div class="bodyIOMat hiddenElement" id="body4">
-                    <h3>Ingreso y egreso de Material</h3>
-                </div>
-                
-
-            </div>
+          </div>
         </div>
-    </section>
-    <script src="./../assets/js/main.js" type="module" defer></script>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="./../assets/js/main.js" type="module" defer></script>
 </body>
 
 </html>

@@ -33,7 +33,7 @@ inputsL.forEach((input) => {
 
 formLogin.addEventListener("submit", (e) => {
   e.preventDefault();
-  
+  console.log(usersListStorage);
   const userValidation= usersListStorage.find((Element)=> Element.userEmail === e.target.userNameLogin.value && Element.userPassword === e.target.userPasswordL.value);
   if( userValidation ? true : false){
     const position= usersListStorage.findIndex(user=>user.userEmail ===e.target.userNameLogin.value);
@@ -93,12 +93,11 @@ formReg.addEventListener("submit", (e) => {
     });
   } else {
     const lastUser=usersListStorage[usersListStorage.length-1]; 
-    let userId= Object.values(lastUser)[0]+1;
-    console.log(userId);
-   
-
+    let userId= Object.values(lastUser)[0];
+    userId++;
+    
     const newUser = new UserInfomation(
-      userId,
+      userId.
       e.target.userNameR.value,
       e.target.userLastNameR.value,
       e.target.userEmailR.value,

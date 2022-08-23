@@ -1,13 +1,17 @@
 //-------------- DECLARACION DE IMPORTACIONES --------------//
-import {usersListStorage } from "./variables.js";
+
+import { usersTable } from "./usersadmin.js";
+import { validation, validationPassword2} from "./functions.js";
+import { expressions, UserInfomation, usersListStorage } from "./variables.js";
 
 //-------------- DECLARACION DE CONST --------------//
 const closeSession = document.getElementById("CloseSession");
-const adminSession = document.getElementById("usersAdministration");
-const adminProyect = document.getElementById("proyectAdministration");
 const title = document.getElementById("mainTitle");
-const btns = document.querySelectorAll("#menuBody, button");
-const visualBody = document.getElementById("visualBody");
+const adminUsers = document.getElementById("usersAdministration");
+const adminProyects = document.getElementById("proyectAdministration");
+const mainMenu = document.getElementById("mainMenu");
+const formReg = document.getElementById("formRegister");
+const inputs = document.querySelectorAll("#formRegister, input");
 
 //-------------- TOMA DE INFO DE USUARIO QUE INICIO SESSION --------------//
 const { userName, userAdmin } = JSON.parse(
@@ -17,7 +21,6 @@ const { userName, userAdmin } = JSON.parse(
 const welcomeTitle = document.createElement("h1");
 welcomeTitle.innerHTML = `Bienvenido ${userName}`;
 title.appendChild(welcomeTitle);
-
 
 //-------------- VALIDACION DEL TIPO DE USUARIO ADMINISTRADOR --------------//
 if (userAdmin ? true : false) {
@@ -34,7 +37,6 @@ if (userAdmin ? true : false) {
     .classList.add(`hiddenElement`);
 }
 
-
 //-------------- DEFINICION PARA CERRAR SESSION --------------//
 
 closeSession.addEventListener("click", CloseClean);
@@ -44,83 +46,97 @@ function CloseClean() {
   window.open("./../index.html", "_self");
 }
 
-function showBody(e) {
+//-------------- MENU LATERAL --------------//
+function mainBody(e) {
   for (let index = 1; index < 5; index++) {
     document.getElementById("body" + index).classList.add(`hiddenElement`);
   }
   document
-    .getElementById(`${e.target.dataset.nome}`)
-    .classList.remove(`hiddenElement`);
+    .getElementById(`${e}`)
+    .classList.remove(`hiddenElement`); 
 }
 
-btns.forEach((button) => {
-  button.addEventListener("click", showBody);
+const showMainBody = (e) => {
+  switch (e.target.id) {
+    case "usersAdministration":
+      mainBody(e.target.dataset.nome)    
+      break;
+    case "proyectAdministration":
+      mainBody(e.target.dataset.nome)
+      break;
+    case "visualProyect":
+      mainBody(e.target.dataset.nome)
+      break;
+    case "iOMaterial":
+      mainBody(e.target.dataset.nome)
+      break;
+  }
+}
+
+mainMenu.addEventListener("click", showMainBody);
+
+
+adminUsers.addEventListener("click", usersTable)
+
+
+ //-------------- REGISTRO DE USUARIOS --------------//
+//-------------- Validación de los Inputs
+const formValidation = (e) => {
+  switch (e.target.name) {
+    case "userNameR":
+      validation(e.target.name, e.target.value, expressions.nombre);
+      break;
+    case "userLastNameR":
+      validation(e.target.name, e.target.value, expressions.nombre);
+      break;
+    case "userEmailR":
+      validation(e.target.name, e.target.value, expressions.correo);
+      break;
+    case "password1":
+      validation(e.target.name, e.target.value, expressions.password);
+      validationPassword2();
+      break;
+    case "password2":
+      validationPassword2();
+      break;
+  }
+};
+
+inputs.forEach((input) => {
+  input.addEventListener("keyup", formValidation);
+  input.addEventListener("blur", formValidation);
 });
 
+//-------------- Declaracion de Buttons
+formReg.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const emailValidation = usersListStorage.find(
+    (Element) => Element.userEmail === e.target.userEmailR.value
+  );
+  if (emailValidation ? true : false) {
+    Swal.fire({
+      icon: "error",
+      title: "Error de E-mail",
+      text: "El correo electrónico ya se encuentra registrado.",
+    });
+  } else {
+    const lastUser=usersListStorage[usersListStorage.length-1]; 
+    let userId= Object.values(lastUser)[0];
+    userId++;  
 
-
-document
-  .querySelector("#usersAdministration")
-  .addEventListener("click", usersTable);
-
-function clearTable() {
-  document.querySelector("#tableUsers").innerHTML = "";
-}
-
-function usersTable() {
+    const newUser = new UserInfomation(
+      userId,
+      e.target.userNameR.value,
+      e.target.userLastNameR.value,
+      e.target.userEmailR.value,
+      e.target.password1.value
+    );
+    usersListStorage.push(newUser);
+    console.log(usersListStorage);
+    const newUserStorage = JSON.stringify(usersListStorage);
+    console.log(newUserStorage);
+    localStorage.setItem("users", newUserStorage);
+    
   
-      let tableUsers = document.querySelector("#tableUsers");
-
-      clearTable();
-
-      for (let user of usersListStorage) {
-        let $tr = document.createElement("tr");
-        let $thId = document.createElement("th");
-        let $thIdText = document.createTextNode(`${user.userId}`);
-        let $tdName = document.createElement("td");
-        let $tdNameText = document.createTextNode(`${user.userName}`);
-        let $tdLastName = document.createElement("td");
-        let $tdLastNameText = document.createTextNode(`${user.userLastName}`);
-        let $tdEmail = document.createElement("td");
-        let $tdEmailText = document.createTextNode(`${user.userEmail}`);
-        let $tdAdmin = document.createElement("td");
-        let $tdAdminText = document.createTextNode(`${user.userAdmin}`);
-        let $tdCheck = document.createElement("td");
-        let $divInput = document.createElement("div");
-        let $input = document.createElement("input");
-
-        $thId.setAttribute("scope", "row");
-        $thId.setAttribute("id", "id");
-        $thId.appendChild($thIdText);
-
-        $tdName.appendChild($tdNameText);
-        $tdLastName.appendChild($tdLastNameText);
-        $tdEmail.appendChild($tdEmailText);
-        $tdAdmin.appendChild($tdAdminText);
-
-        $input.setAttribute("class", "form-check-input checkbox");
-        $input.setAttribute("type", "checkbox");
-        $input.setAttribute("value", `${user.userId}`);
-        $input.setAttribute("id", `check${user.userId}`);
-        $input.setAttribute("name", "checkDelet");
-
-        $divInput.setAttribute("class", "form-check");
-        $divInput.appendChild($input);
-        $tdCheck.appendChild($divInput);
-
-        $tr.appendChild($thId);
-        $tr.appendChild($tdName);
-        $tr.appendChild($tdLastName);
-        $tr.appendChild($tdEmail);
-        $tr.appendChild($tdAdmin);
-        $tr.appendChild($tdCheck);
-
-        tableUsers.appendChild($tr);
-      }
-   
-}
-
-const checkboxs = document.getElementsByTagName("input");
-console.log(checkboxs);
-
-
+  }
+});  
