@@ -52,15 +52,18 @@
 
         <div class="bodyUsersAdmin hiddenElement" id="body1">
           <h3>Administración de Usuarios</h3>
-          <table class="table table-striped">
+          <table class="table table-striped align-middle fs-4">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Usuario Administrador</th>
-                <th scope="col">@</select></th>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Nombre</th>
+                <th scope="col" class="text-center">Apellido</th>
+                <th scope="col" class="text-center">E-mail</th>
+                <th scope="col" class="text-center">Usuario Administrador</th>
+                <th scope="col" class="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg></th>
               </tr>
             </thead>
             <tbody id="tableUsers">
@@ -70,7 +73,7 @@
           <div class="containerButtons " role="group" aria-label="Basic example">
             <button type="button" class="btn btnBasic" data-bs-toggle="modal" data-bs-target="#modalAddUser">Agregar
               usuario</button>
-            <button type="button" class="btn btnBasic btnBasic2 .hiddenElement">Eliminar usuario</button>
+            <button type="button" class="btn btnBasic btnBasic2 hiddenElement">Eliminar usuario</button>
           </div>
         </div>
         <div class="bodyProyectAdmin hiddenElement" id="body2">
@@ -132,14 +135,22 @@
                   <p class="inputAlertaError_password1">La contraseña tiene que ser de 4 a 12 dígitos.</p>
                 </div>
                 <div class="formItem itemPassword password2" id="item__password2">
-                  <label for="inputPasswprd" class=" formLabel userPassword">Por favor ingrese nuevamente el
+                  <label for="inputPassword" class=" formLabel userPassword">Por favor ingrese nuevamente el
                     password:</label>
                   <input type="password" class="input-group mb-3 formInput inputPassword" name="password2"
                     id="password2" required />
                   <p class="inputAlertaError_password2">Los password no coinciden.</p>
                 </div>
+                <div class="formItem userType" id="item_userType">
+                  <label for="userType" class=" formLabel userType">Selectione el tipo de usuairio</label>
+                  <select class="custom-select mb-7" id="userType">
+                    <option value="true">Administrador</option>
+                    <option value="false">Usuario</option>
+                  </select>
+                </div>
                 <div class="containerButtons" id="containerButtons">
-                  <button class="btn btnR btnSpecial me-3" id="registrar" type="submit" data-mdb-dismiss="modal">Agregar usuario</button>
+                  <button class="btn btnR btnSpecial me-3" id="registrar" type="submit" data-mdb-dismiss="modal">Agregar
+                    usuario</button>
                 </div>
               </form>
             </div>
@@ -150,8 +161,9 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="./../assets/js/main.js" type="module" defer></script>
+
 </body>
 
 </html>

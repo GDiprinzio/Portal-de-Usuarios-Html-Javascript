@@ -95,13 +95,15 @@ formReg.addEventListener("submit", (e) => {
     const lastUser=usersListStorage[usersListStorage.length-1]; 
     let userId= Object.values(lastUser)[0];
     userId++;
+    let userAdmin=false;
     
     const newUser = new UserInfomation(
-      userId.
+      userId,
       e.target.userNameR.value,
       e.target.userLastNameR.value,
       e.target.userEmailR.value,
-      e.target.password1.value
+      e.target.password1.value,
+      userAdmin
     );
     usersListStorage.push(newUser);
     const newUserStorage = JSON.stringify(usersListStorage);

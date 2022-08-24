@@ -13,6 +13,7 @@ const mainMenu = document.getElementById("mainMenu");
 const formReg = document.getElementById("formRegister");
 const inputs = document.querySelectorAll("#formRegister, input");
 
+
 //-------------- TOMA DE INFO DE USUARIO QUE INICIO SESSION --------------//
 const { userName, userAdmin } = JSON.parse(
   sessionStorage.getItem("userSession")
@@ -124,19 +125,28 @@ formReg.addEventListener("submit", (e) => {
     let userId= Object.values(lastUser)[0];
     userId++;  
 
+    let userAdmin=document.getElementById("userType").value;
+    console.log(userAdmin);
+
     const newUser = new UserInfomation(
       userId,
       e.target.userNameR.value,
       e.target.userLastNameR.value,
       e.target.userEmailR.value,
-      e.target.password1.value
+      e.target.password1.value,
+      userAdmin
     );
     usersListStorage.push(newUser);
     console.log(usersListStorage);
     const newUserStorage = JSON.stringify(usersListStorage);
     console.log(newUserStorage);
     localStorage.setItem("users", newUserStorage);
-    
-  
   }
-});  
+  usersTable();
+ 
+});
+
+const deletUser = document.getElementsByClassName("deletUser")
+deletUser.forEach((e)=>{e.addEventListener("click",console.log(e.target.id))})
+
+console.log(deletUser)

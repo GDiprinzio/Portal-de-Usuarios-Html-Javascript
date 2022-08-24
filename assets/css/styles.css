@@ -162,12 +162,13 @@ body {
   justify-content: space-evenly;
   align-content: center;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 4.5rem);
   grid-template-areas:
     "userName userLastName"
     "userEmail userEmail"
     "userPassword1 userPassword1"
     "userPassword2 userPassword2"
+    "itemUserType itemUserType"
     "buttons buttons";
 }
 .itemUserName {
@@ -189,6 +190,10 @@ body {
 .password2 {
  /*  width: 90%; */
   grid-area: userPassword2;
+}
+
+.item_userType{
+  grid-area: itemUserType;
 }
 input {
   height: 3rem;
@@ -291,12 +296,14 @@ input {
   border-radius: 1rem;
   cursor: pointer;
   margin: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   letter-spacing: 0.1rem;
   border: 0;
   transition: 0.5s;
 }
-
+td{
+  width: 5rem;
+}
 .btnBasic:hover{
   background-color: greenyellow;
   color: #112d4e;

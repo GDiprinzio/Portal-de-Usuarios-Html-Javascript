@@ -20,13 +20,13 @@ export  const usersListStorage = JSON.parse(localStorage.getItem("users"));
   
   //Declaración de Objeto
   export class UserInfomation {
-    constructor(userId, userName, userLastName, userEmail, userPassword) {
+    constructor(userId, userName, userLastName, userEmail, userPassword, userAdmin) {
       this.userId=userId;
       this.userName = userName;
       this.userLastName = userLastName;
       this.userEmail = userEmail;
       this.userPassword = userPassword;
-      this.userAdmin=false;
+      this.userAdmin=userAdmin;
     }
   };
 
