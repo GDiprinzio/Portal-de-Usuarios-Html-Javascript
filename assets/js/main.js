@@ -1,6 +1,6 @@
 //-------------- DECLARACION DE IMPORTACIONES --------------//
 
-import { usersTable } from "./usersadmin.js";
+/* import { usersTable } from "./usersadmin.js"; */
 import { validation, validationPassword2} from "./functions.js";
 import { expressions, UserInfomation, usersListStorage } from "./variables.js";
 
@@ -12,6 +12,8 @@ const adminProyects = document.getElementById("proyectAdministration");
 const mainMenu = document.getElementById("mainMenu");
 const formReg = document.getElementById("formRegister");
 const inputs = document.querySelectorAll("#formRegister, input");
+const formDeletUser= document.getElementById("formDeletUser");
+const deletUserId=document.getElementById("deletUserId");
 
 
 //-------------- TOMA DE INFO DE USUARIO QUE INICIO SESSION --------------//
@@ -75,6 +77,62 @@ const showMainBody = (e) => {
 }
 
 mainMenu.addEventListener("click", showMainBody);
+
+
+//-------------- BUTTON AdminUsers --------------//
+function clearTable() {
+  document.querySelector("#tableUsers").innerHTML = "";
+}
+
+function usersTable() {
+
+  let tableUsers = document.querySelector("#tableUsers");
+
+  clearTable();
+
+  for (let user of usersListStorage) {
+    let $tr = document.createElement("tr");
+    let $thId = document.createElement("th");
+    let $thIdText = document.createTextNode(`${user.userId}`);
+    let $tdName = document.createElement("td");
+    let $tdNameText = document.createTextNode(`${user.userName}`);
+    let $tdLastName = document.createElement("td");
+    let $tdLastNameText = document.createTextNode(`${user.userLastName}`);
+    let $tdEmail = document.createElement("td");
+    let $tdEmailText = document.createTextNode(`${user.userEmail}`);
+    let $tdAdmin = document.createElement("td");
+    let $tdAdminText = document.createTextNode(`${user.userAdmin}`);
+/*     let $tdButton = document.createElement("td");
+    let $btn = document.createElement("button");
+    let $btnText = document.createTextNode("Eliminar") */
+
+    $thId.setAttribute("scope", "row");
+    $thId.setAttribute("id", "id");
+    $thId.appendChild($thIdText);
+
+    $tdName.appendChild($tdNameText);
+    $tdLastName.appendChild($tdLastNameText);
+    $tdEmail.appendChild($tdEmailText);
+    $tdAdmin.appendChild($tdAdminText);
+
+/*     $btn.setAttribute("type", "button");
+    $btn.setAttribute("class", "btn btnBasic btnBasic2 deletUser");
+    $btn.setAttribute("id", `btn${user.userId}`);
+    $btn.setAttribute("value", `${user.userId}`)
+    $btn.setAttribute("onclick",`deleting(${user.userId})`);
+    $btn.appendChild($btnText);
+    $tdButton.appendChild($btn); */
+
+    $tr.appendChild($thId);
+    $tr.appendChild($tdName);
+    $tr.appendChild($tdLastName);
+    $tr.appendChild($tdEmail);
+    $tr.appendChild($tdAdmin);
+/*     $tr.appendChild($tdButton); */
+
+    tableUsers.appendChild($tr);
+  }
+}
 
 
 adminUsers.addEventListener("click", usersTable)
@@ -146,7 +204,31 @@ formReg.addEventListener("submit", (e) => {
  
 });
 
-const deletUser = document.getElementsByClassName("deletUser")
-deletUser.forEach((e)=>{e.addEventListener("click",console.log(e.target.id))})
+/*---- ELIMINAR USUARIO ----*/
 
-console.log(deletUser)
+const validationNumber=(e)=>{
+  validation(e.target.name, e.target.value, expressions.number)
+}
+
+  
+deletUserId.addEventListener("keyup",validationNumber);
+
+formDeletUser.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const userIdValidation = usersListStorage.find((Element)=> Element.userId === e.target.deletUserId.value)
+ if (userIdValidation ? true : false){
+  const index= usersListStorage.indexOf(e.target.deletUserId.value)
+  usersListStorage.splice(index, 1)
+  const newUserStorage = JSON.stringify(usersListStorage);
+    localStorage.setItem("users", newUserStorage);
+
+    usersTable();
+
+ }else{
+  Swal.fire({
+    icon: 'error',
+    title: 'Id no enctrado',
+    text: 'El Id que ha ingresado no es valido o no existe ningun usuario registrado con el.',
+  })
+ }
+})

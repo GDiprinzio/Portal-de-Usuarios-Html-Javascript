@@ -19,8 +19,16 @@
       "userId":"3",
       "userName": "Bruno",
       "userLastName": "Tutor",
-      "userEmai": "brunotutor@gmail.com",
+      "userEmail": "brunotutor@gmail.com",
       "userPassword": "1976",
+      "userAdmin": false
+    },
+    {
+      "userId":"4",
+      "userName": "Rick",
+      "userLastName": "Hunter",
+      "userEmail": "vf1j_pilot@gmail.com",
+      "userPassword": "1982",
       "userAdmin": false
     }
   ]

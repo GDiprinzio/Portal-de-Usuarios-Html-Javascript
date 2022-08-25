@@ -32,10 +32,7 @@ body {
   left: 0;
 }
 
-.navbar .imgLogo {
-  height: 9rem;
-  margin-left: 4rem;
-}
+
 
 .navbar .nav-item {
   list-style: none;
@@ -60,6 +57,11 @@ body {
   border-bottom: solid 0.5rem greenyellow;
 }
 
+.navbar .imgLogo {
+  height: 9rem;
+  margin-left: 4rem;
+}
+
 .btnSpecial {
   background-color: #375b84;
   text-transform: uppercase;
@@ -67,7 +69,6 @@ body {
   color: white;
   border-radius: 1rem;
   cursor: pointer;
-  grid-area: button;
   padding: 1rem;
   margin-top: 1.5rem;
   letter-spacing: 0.1rem;
@@ -77,7 +78,7 @@ body {
 }
 
 .btnSpecial:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   border-right: solid 0.5rem #2bf7f7;
   border-bottom: solid 0.5rem #2bf7f7;
   border-radius: 1rem;
@@ -90,14 +91,14 @@ body {
   padding: 2rem;
   gap: 2rem;
   align-content: center;
-  height: 45rem;
   display: flex;
   justify-content: center;
 }
 
 .containerFormLogin {
-  display: grid;
-  grid-template-columns: 2fr;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 3fr;
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
     "userLogin userLogin"
@@ -120,7 +121,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .containerButtons {
@@ -130,9 +131,9 @@ body {
   height: 5rem;
   font-weight: bolder;
 }
-.modal-content{
+/* .modal-content{
   width: 65rem;
-}
+} */
 
 .contianerFormRegister {
   display: flex;
@@ -207,6 +208,8 @@ input {
 .password2 {
   display: flex;
   flex-direction: column;
+  padding: 0.5rem;
+  font-size: 12px;
 }
 
 .formValCorrecto {
@@ -223,7 +226,8 @@ input {
 .inputAlertaError2_userEmailR,
 .inputAlertaError_userNameLogin,
 .inputAlertaError_userPasswordL,
-.inputAlertaError_Login {
+.inputAlertaError_Login,
+.inputAlertaError_deletUserId {
   font-size: 12px;
   margin-bottom: 0;
   display: none;
@@ -312,4 +316,8 @@ td{
 .btnBasic2:hover{
   background-color: rgb(236, 77, 69);
   color: #112d4e;
+}
+
+.deletUserModal{
+  height: 5rem;
 }

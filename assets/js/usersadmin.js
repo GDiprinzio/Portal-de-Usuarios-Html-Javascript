@@ -26,9 +26,6 @@ export function usersTable() {
     let $tdEmailText = document.createTextNode(`${user.userEmail}`);
     let $tdAdmin = document.createElement("td");
     let $tdAdminText = document.createTextNode(`${user.userAdmin}`);
-    /* let $tdCheck = document.createElement("td");
-    let $divInput = document.createElement("div");
-    let $input = document.createElement("input"); */
     let $tdButton = document.createElement("td");
     let $btn = document.createElement("button");
     let $btnText = document.createTextNode("Eliminar")
@@ -42,15 +39,6 @@ export function usersTable() {
     $tdEmail.appendChild($tdEmailText);
     $tdAdmin.appendChild($tdAdminText);
 
-    /*  $input.setAttribute("class", "form-check-input checkbox");
-     $input.setAttribute("type", "checkbox");
-     $input.setAttribute("value", `${user.userId}`);
-     $input.setAttribute("id", `check${user.userId}`);
-     $input.setAttribute("name", "checkDelet"); */
-
-    /* $divInput.setAttribute("class", "form-check");
-    $divInput.appendChild($input);
-    $tdCheck.appendChild($divInput); */
     $btn.setAttribute("type", "button");
     $btn.setAttribute("class", "btn btnBasic btnBasic2 deletUser");
     $btn.setAttribute("id", `btn${user.userId}`);
@@ -64,7 +52,6 @@ export function usersTable() {
     $tr.appendChild($tdLastName);
     $tr.appendChild($tdEmail);
     $tr.appendChild($tdAdmin);
-    /* $tr.appendChild($tdCheck); */
     $tr.appendChild($tdButton);
 
     tableUsers.appendChild($tr);
