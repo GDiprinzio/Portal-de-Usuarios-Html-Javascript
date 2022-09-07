@@ -33,7 +33,6 @@ inputsL.forEach((input) => {
 
 formLogin.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(usersListStorage);
   const userValidation= usersListStorage.find((Element)=> Element.userEmail === e.target.userNameLogin.value && Element.userPassword === e.target.userPasswordL.value);
   if( userValidation ? true : false){
     const position= usersListStorage.findIndex(user=>user.userEmail ===e.target.userNameLogin.value);

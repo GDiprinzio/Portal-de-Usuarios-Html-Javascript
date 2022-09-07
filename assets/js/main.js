@@ -78,7 +78,6 @@ const showMainBody = (e) => {
 
 mainMenu.addEventListener("click", showMainBody);
 
-
 //-------------- BUTTON AdminUsers --------------//
 function clearTable() {
   document.querySelector("#tableUsers").innerHTML = "";
@@ -102,9 +101,6 @@ function usersTable() {
     let $tdEmailText = document.createTextNode(`${user.userEmail}`);
     let $tdAdmin = document.createElement("td");
     let $tdAdminText = document.createTextNode(`${user.userAdmin}`);
-/*     let $tdButton = document.createElement("td");
-    let $btn = document.createElement("button");
-    let $btnText = document.createTextNode("Eliminar") */
 
     $thId.setAttribute("scope", "row");
     $thId.setAttribute("id", "id");
@@ -115,28 +111,17 @@ function usersTable() {
     $tdEmail.appendChild($tdEmailText);
     $tdAdmin.appendChild($tdAdminText);
 
-/*     $btn.setAttribute("type", "button");
-    $btn.setAttribute("class", "btn btnBasic btnBasic2 deletUser");
-    $btn.setAttribute("id", `btn${user.userId}`);
-    $btn.setAttribute("value", `${user.userId}`)
-    $btn.setAttribute("onclick",`deleting(${user.userId})`);
-    $btn.appendChild($btnText);
-    $tdButton.appendChild($btn); */
-
     $tr.appendChild($thId);
     $tr.appendChild($tdName);
     $tr.appendChild($tdLastName);
     $tr.appendChild($tdEmail);
     $tr.appendChild($tdAdmin);
-/*     $tr.appendChild($tdButton); */
 
     tableUsers.appendChild($tr);
   }
 }
 
-
 adminUsers.addEventListener("click", usersTable)
-
 
  //-------------- REGISTRO DE USUARIOS --------------//
 //-------------- Validación de los Inputs
@@ -195,9 +180,7 @@ formReg.addEventListener("submit", (e) => {
       userAdmin
     );
     usersListStorage.push(newUser);
-    console.log(usersListStorage);
     const newUserStorage = JSON.stringify(usersListStorage);
-    console.log(newUserStorage);
     localStorage.setItem("users", newUserStorage);
   }
   usersTable();
